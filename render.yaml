@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: wedding-invitation
+    env: static
+    buildCommand: npm install
+    staticPublishPath: ./
+    envVars:
+      - key: NODE_ENV
+        value: production
+    routes:
+      - type: rewrite
+        source: "/*"
+        destination: "/index.html"
+    build:
+      baseDir: .
+      nodeVersion: 18.x
